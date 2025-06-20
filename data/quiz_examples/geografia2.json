@@ -1,0 +1,16 @@
+{
+    "title": "Geografia Polski 2",
+    "description": "",
+    "questions": [
+        {
+            "question_text": "Jak nazywa się najdłuższa rzeka w Polsce?",
+            "options": [
+                "Wisła",
+                "Odra",
+                "Dunajec",
+                "Niemen"
+            ],
+            "correct_answer_index": 0
+        }
+    ]
+}

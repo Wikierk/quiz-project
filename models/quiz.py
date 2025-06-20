@@ -1,3 +1,5 @@
+from .question import Question 
+
 class Quiz:
     """
     Represents a collection of questions that form a quiz.
