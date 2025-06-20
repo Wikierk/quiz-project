@@ -1,0 +1,25 @@
+{
+    "title": "Test z pythona",
+    "description": "test z python",
+    "questions": [
+        {
+            "question_text": "Python jest językiem:",
+            "options": [
+                "dynamicznym",
+                "kompilowanym",
+                "interpretowanym"
+            ],
+            "correct_answer_index": 2
+        },
+        {
+            "question_text": "Kiedy powstał python?",
+            "options": [
+                "2022",
+                "2010",
+                "2011",
+                "2003"
+            ],
+            "correct_answer_index": 1
+        }
+    ]
+}

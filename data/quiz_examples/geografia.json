@@ -3,12 +3,12 @@
     "description": "",
     "questions": [
         {
-            "question_text": "Jakie miasto jest stolicÄ… Polski?",
+            "question_text": "Jakie miasto jest stolicą Polski?",
             "options": [
                 "Warszawa",
                 "Gniezno",
-                "WrocĹ‚aw",
-                "KrakĂłw"
+                "Wrocław",
+                "Kraków"
             ],
             "correct_answer_index": 0
         }

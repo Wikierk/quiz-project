@@ -1,7 +1,14 @@
+import matplotlib
+matplotlib.use('Agg') # Ustawia nieinteraktywny backend, aby zapobiec problemom z GUI w testach/środowiskach bez GUI
 import matplotlib.pyplot as plt
 import os
 from models.quiz import Quiz
 from quiz_data.manager import QuizDataManager
+
+# Globalna zmienna na poziomie modułu
+# (jest dostępna dla wszystkich funkcji i metod w tym module)
+REPORTS_DIRECTORY = "reports"
+
 
 class QuizPlayer:
     """
@@ -140,9 +147,13 @@ class QuizPlayer:
             incorrect_count (int): Number of incorrect answers.
             quiz_title (str): The title of the quiz for chart labeling.
         """
-        labels = ['Poprawne', 'Niepoprawne']
+        # Użycie krotki do przechowywania stałych etykiet
+        labels: tuple[str, str] = ('Poprawne', 'Niepoprawne')
         sizes = [correct_count, incorrect_count]
-        colors = ['#4CAF50', '#F44336'] # Green for correct, Red for incorrect
+        
+        # Użycie krotki do przechowywania stałych kodów kolorów
+        colors: tuple[str, str] = ('#4CAF50', '#F44336') # Green for correct, Red for incorrect
+        
         explode = (0.1, 0) # explode the 1st slice (Correct)
 
         fig1, ax1 = plt.subplots()
@@ -152,14 +163,14 @@ class QuizPlayer:
 
         plt.title(f'Wyniki quizu: {quiz_title}', fontsize=16, color='black')
         
-        # Save the chart
-        reports_dir = "reports"
-        if not os.path.exists(reports_dir):
-            os.makedirs(reports_dir)
-            print(f"Created directory: {reports_dir}")
+        # Save the chart using the global variable for the directory
+        # REPORTS_DIRECTORY jest zmienną globalną na poziomie modułu
+        if not os.path.exists(REPORTS_DIRECTORY):
+            os.makedirs(REPORTS_DIRECTORY)
+            print(f"Created directory: {REPORTS_DIRECTORY}")
 
         chart_filename = f"wyniki_{quiz_title.replace(' ', '_').lower()}.png"
-        chart_filepath = os.path.join(reports_dir, chart_filename)
+        chart_filepath = os.path.join(REPORTS_DIRECTORY, chart_filename)
 
         try:
             plt.savefig(chart_filepath, bbox_inches='tight', dpi=100)
