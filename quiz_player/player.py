@@ -1,9 +1,9 @@
-import matplotlib
-matplotlib.use('Agg') # Ustawia nieinteraktywny backend, aby zapobiec problemom z GUI w testach/środowiskach bez GUI
-import matplotlib.pyplot as plt
 import os
-from models.quiz import Quiz
+import matplotlib
+import matplotlib.pyplot as plt
 from quiz_data.manager import QuizDataManager
+
+matplotlib.use('Agg')
 
 # Globalna zmienna na poziomie modułu
 # (jest dostępna dla wszystkich funkcji i metod w tym module)
@@ -150,19 +150,20 @@ class QuizPlayer:
         # Użycie krotki do przechowywania stałych etykiet
         labels: tuple[str, str] = ('Poprawne', 'Niepoprawne')
         sizes = [correct_count, incorrect_count]
-        
+
         # Użycie krotki do przechowywania stałych kodów kolorów
         colors: tuple[str, str] = ('#4CAF50', '#F44336') # Green for correct, Red for incorrect
-        
+
         explode = (0.1, 0) # explode the 1st slice (Correct)
 
         fig1, ax1 = plt.subplots()
         ax1.pie(sizes, explode=explode, labels=labels, colors=colors,
-                autopct='%1.1f%%', shadow=True, startangle=90, textprops={'fontsize': 12, 'color': 'white'})
+                autopct='%1.1f%%', shadow=True, startangle=90,
+                textprops={'fontsize': 12, 'color': 'white'})
         ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
         plt.title(f'Wyniki quizu: {quiz_title}', fontsize=16, color='black')
-        
+
         # Save the chart using the global variable for the directory
         # REPORTS_DIRECTORY jest zmienną globalną na poziomie modułu
         if not os.path.exists(REPORTS_DIRECTORY):

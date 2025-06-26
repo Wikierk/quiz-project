@@ -240,6 +240,57 @@ class DerivedTestUtility(BaseTestUtility):
         print(f"[DerivedTestUtility] Running test_access_base_feature_from_derived. base_value = {self.base_value}")
         self.assertEqual(self.base_value, 10) # Dostęp do odziedziczonego atrybutu
 
+def run_pylint_check(file_path: str) -> int:
+    """
+    Demonstrates how to programmatically run a Pylint check on a given file.
+    This fulfills the requirement for code quality testing.
+
+    Args:
+        file_path (str): The path to the Python file to check.
+
+    Returns:
+        int: The exit code of Pylint (0 if no errors/warnings, >0 otherwise).
+    """
+    print(f"\n[Code Quality Check] Uruchamiam Pylint dla pliku: {file_path}")
+    
+    # Ścieżka do skryptu pylint - często jest w PATH, ale można podać pełną ścieżkę
+    # pylint_executable = "pylint" 
+
+    # Argumenty dla pylint:
+    # --rcfile=none - ignoruje globalne pliki konfiguracyjne (dla czystego przykładu)
+    # --disable=all - wyłącza wszystkie wiadomości, a następnie włącza konkretne (przykładowo)
+    # --enable=E,W,C - włącza tylko błędy (Error), ostrzeżenia (Warning) i konwencje (Convention)
+    # file_path - plik do sprawdzenia
+    pylint_args = [file_path, "--reports=no", "--disable=C0114,C0115,C0116"] # Przykładowe wyłączenie brakujących docstringów
+
+    class RealPyLint:
+        def run_pylint(self, args):
+            # Tutaj można by wykonać rzeczywiste sprawdzenie pylint
+            # Na potrzeby przykładu, tylko symulujemy.
+            # Rzeczywiste wywołanie wyglądałoby tak:
+            # from pylint.lint import Run
+            # Run(args)
+            print(f"Uruchamiam pylint z argumentami: {args}")
+            # Zwracamy kod wyjścia, 0 dla sukcesu, >0 dla błędów
+            # Tutaj zwracamy 0 aby nie przerywac testow, ale w rzeczywistosci nalezy zwrocic prawdziwy wynik
+            return os.system(f"pylint {' '.join(args)}") # Faktyczne uruchomienie pylint
+
+
+    pylint_runner = RealPyLint()
+
+    # Wywołanie pylint za pomocą os.system lub pylint.lint.run_pylint
+    # Używamy zaimplementowanego obiektu pylint_runner do uruchomienia
+    exit_code = pylint_runner.run_pylint(pylint_args)
+
+    if exit_code == 0:
+        print(f"[Code Quality Check] Pylint zakończył się sukcesem dla {file_path}. Kod spełnia standardy jakości.")
+    else:
+        print(f"[Code Quality Check] Pylint znalazł problemy w {file_path}. Kod wyjścia: {exit_code}")
+    
+    return exit_code
+
+
+
 # --- Jak uruchomić te testy (sekcja dla Pythona) ---
 if __name__ == '__main__':
     # Jawne tworzenie i uruchamianie testów
@@ -257,3 +308,4 @@ if __name__ == '__main__':
     runner = unittest.TextTestRunner(verbosity=2)
     runner.run(suite)
 
+    run_pylint_check('quiz_player/player.py')

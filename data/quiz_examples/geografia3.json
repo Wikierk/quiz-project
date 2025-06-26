@@ -1,0 +1,16 @@
+{
+    "title": "Geografia",
+    "description": "",
+    "questions": [
+        {
+            "question_text": "Jakie miasto jest stolicą Polski?",
+            "options": [
+                "Warszawa",
+                "Gniezno",
+                "Kraków",
+                "Kielce"
+            ],
+            "correct_answer_index": 0
+        }
+    ]
+}

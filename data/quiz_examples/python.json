@@ -20,6 +20,105 @@
                 "2003"
             ],
             "correct_answer_index": 1
+        },
+        {
+            "question_text": "Kto stworzył język Python?",
+            "options": [
+                "Dennis Ritchie",
+                "Guido van Rossum",
+                "Bjarne Stroustrup"
+            ],
+            "correct_answer_index": 1
+        },
+        {
+            "question_text": "Jakiego słowa kluczowego używa się do zdefiniowania funkcji w Pythonie?",
+            "options": [
+                "function",
+                "def",
+                "fun"
+            ],
+            "correct_answer_index": 1
+        },
+        {
+            "question_text": "Jakiego typu zmiennej użyjesz do przechowania liczby całkowitej?",
+            "options": [
+                "float",
+                "str",
+                "int"
+            ],
+            "correct_answer_index": 2
+        },
+        {
+            "question_text": "Które z poniższych to poprawna pętla w Pythonie?",
+            "options": [
+                "repeat ... until",
+                "do ... while",
+                "for i in range(5):"
+            ],
+            "correct_answer_index": 2
+        },
+        {
+            "question_text": "Jak sprawdzić długość listy w Pythonie?",
+            "options": [
+                "count(list)",
+                "len(list)",
+                "size(list)"
+            ],
+            "correct_answer_index": 1
+        },
+        {
+            "question_text": "Jakiego operatora używamy do przypisania wartości w Pythonie?",
+            "options": [
+                "=",
+                "==",
+                ":="
+            ],
+            "correct_answer_index": 0
+        },
+        {
+            "question_text": "Jakim typem danych jest wynik działania 3 / 2 w Pythonie 3?",
+            "options": [
+                "int",
+                "float",
+                "str"
+            ],
+            "correct_answer_index": 1
+        },
+        {
+            "question_text": "Co zwróci wyrażenie 'Python'[::-1]?",
+            "options": [
+                "błąd",
+                "Python",
+                "nohtyP"
+            ],
+            "correct_answer_index": 2
+        },
+        {
+            "question_text": "Jakie rozszerzenie ma standardowy plik źródłowy Pythona?",
+            "options": [
+                ".py",
+                ".pt",
+                ".pyt"
+            ],
+            "correct_answer_index": 0
+        },
+        {
+            "question_text": "Która z poniższych struktur danych przechowuje unikalne wartości?",
+            "options": [
+                "list",
+                "tuple",
+                "set"
+            ],
+            "correct_answer_index": 2
+        },
+        {
+            "question_text": "Kiedy powstal python?",
+            "options": [
+                "2001",
+                "2002",
+                "2003"
+            ],
+            "correct_answer_index": 2
         }
     ]
 }

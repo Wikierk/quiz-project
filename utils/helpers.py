@@ -289,4 +289,3 @@ def run_pylint_check(file_path: str) -> int:
         print(f"[Code Quality Check] Pylint znalazł problemy w {file_path}. Kod wyjścia: {exit_code}")
     
     return exit_code
-
